@@ -1,0 +1,32 @@
+---
+import PortfolioSwiper from '../components/PortfolioSwiper.svelte';
+import PortfolioMarquee from '../components/PortfolioMarquee.astro';
+
+let portfolios = [
+    'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=600&q=80',
+];
+---
+
+<section id="portfolio" class="overflow-hidden py-16">
+    <div class="container mb-12 text-center">
+        <h3 class="aos show:animate-fade-up text-primary text-lg font-bold">Portfolio</h3>
+        <p class="aos show:animate-fade-up show:animate-delay-150 text-sm text-gray-400">A glimpse into the best works of creative you</p>
+    </div>
+
+    <div class="aos duration-500 transition-[opacity] relative container mx-auto px-6">
+        <div
+            class="pointer-events-none absolute opacity-0 md:opacity-100 top-0 bottom-0 left-0 z-10 w-16 bg-gradient-to-r from-[#0d0d12] from-50% to-transparent md:w-48">
+        </div>
+        <div class="hidden md:block">
+            <PortfolioMarquee portfolios={portfolios} />
+        </div>
+        <div class="block md:hidden">
+            <PortfolioSwiper portfolios={portfolios} client:media="(max-width: 767px)" />
+        </div>
+        <div
+            class="pointer-events-none absolute opacity-0 md:opacity-100 top-0 right-0 bottom-0 z-10 w-16 bg-gradient-to-l from-[#0d0d12] from-50% to-transparent md:w-48">
+        </div>
+    </div>
+</section>

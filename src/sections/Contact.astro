@@ -1,0 +1,62 @@
+---
+
+---
+
+<section id="contact" class="container py-20">
+    <div class="mx-auto flex max-w-5xl flex-col items-center gap-10 rounded-3xl bg-[#1a1a24] p-8 md:flex-row md:p-12">
+        <div class="w-full space-y-6 md:w-1/2">
+            <div>
+                <h3 class="mb-2 text-2xl font-bold">Let's contact</h3>
+                <p class="text-xs leading-relaxed text-gray-400">
+                    Let's make something amazing together! Drop us a line and let's get started on your next big project.
+                </p>
+            </div>
+
+            <form class="space-y-4" onsubmit="event.preventDefault();">
+                <div class="flex flex-col gap-4 sm:flex-row">
+                    <input
+                        type="text"
+                        placeholder="First Name"
+                        class="focus:border-primary w-full rounded-lg border border-gray-600 bg-transparent p-3 text-sm focus:outline-none"
+                    />
+                    <input
+                        type="text"
+                        placeholder="Last Name"
+                        class="focus:border-primary w-full rounded-lg border border-gray-600 bg-transparent p-3 text-sm focus:outline-none"
+                    />
+                </div>
+                <input
+                    type="email"
+                    placeholder="Email"
+                    class="focus:border-primary w-full rounded-lg border border-gray-600 bg-transparent p-3 text-sm focus:outline-none"
+                />
+                <input
+                    type="tel"
+                    placeholder="Phone Number"
+                    class="focus:border-primary w-full rounded-lg border border-gray-600 bg-transparent p-3 text-sm focus:outline-none"
+                />
+                <textarea
+                    placeholder="Message"
+                    rows="3"
+                    class="focus:border-primary w-full rounded-lg border border-gray-600 bg-transparent p-3 text-sm focus:outline-none">
+                </textarea>
+
+                <button
+                    type="submit"
+                    class="to-primary w-full rounded-lg bg-gradient-to-r from-blue-600 py-3 font-bold text-white transition-opacity hover:opacity-90">
+                    Send Message 🚀
+                </button>
+            </form>
+        </div>
+
+        <div class="h-full w-full md:w-1/2">
+            <div class="relative h-full min-h-[350px] w-full overflow-hidden rounded-2xl bg-gray-800">
+                <img
+                    src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80"
+                    alt="Contact Illustration"
+                    class="h-full w-full object-cover"
+                />
+            </div>
+        </div>
+    </div>
+</section>

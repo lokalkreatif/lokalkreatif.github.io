@@ -1,0 +1,39 @@
+---
+interface Props {
+    portfolios: string[];
+}
+
+const { portfolios } = Astro.props;
+
+const slideDuration = 4;
+
+const marqueeDuration = portfolios.length * slideDuration
+
+const doubledPort = [...portfolios, ...portfolios, ...portfolios];
+---
+
+<div class="marquee-container flex overflow-hidden py-10" style=`--duration: ${marqueeDuration}s`>
+  <div class="marquee-content flex gap-6">
+    {doubledPort.map((img) => (
+      <div class="w-80 h-52 flex-shrink-0 rounded-2xl overflow-hidden shadow-xl hover:pause cursor-pointer transition-transform hover:scale-105">
+        <img src={img} class="w-full h-full object-cover" alt="Portfolio" />
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee-content {
+    animation: scroll var(--duration) linear infinite;
+    width: max-content;
+  }
+
+  .marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.33%); } /* Karena kita duplikat 3x */
+  }
+</style>

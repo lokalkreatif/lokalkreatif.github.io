@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import logoImg from '../assets/logo.png';
+import { navLinks } from '../consts.ts';
+---
+
+<header class="fixed inset-0 transition-colors duration-500 ease z-50 block h-max" id="header">
+    <div class="container flex items-center transition-[padding] ease-in-out duration-500 justify-between py-8" id="header-container">
+        <div class="flex items-center gap-2">
+            <a href="/">
+                <Image src={logoImg} alt="" class="h-12 w-auto object-contain" />
+            </a>
+        </div>
+        <nav class="hidden space-x-8 text-sm font-medium md:flex">
+            {
+                navLinks.map((link) => (
+                    <a href={`#${link.toLowerCase()}`} class="hover:text-primary transition-colors">
+                        {link}
+                    </a>
+                ))
+            }
+        </nav>
+    </div>
+</header>
+
+<script>
+document.addEventListener("scroll", () => {
+    const header = document.getElementById("header")
+    const headerContainer = document.getElementById("header-container")
+    const scrolled = window.scrollY > 70;
+    header.classList.toggle('bg-gray-950/95', scrolled);
+    headerContainer.classList.toggle('py-3.5', scrolled);
+    headerContainer.classList.toggle('py-8', !scrolled);
+})
+</script>

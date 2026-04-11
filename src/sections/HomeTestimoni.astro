@@ -1,0 +1,26 @@
+---
+const testimonials = Array(6).fill({
+    name: 'Panduwiwi store',
+    text: '"Website nya keren dan menarik! sangat bagus pokok nya the best buat kalian!"',
+});
+---
+
+<section id="testimoni" class="container py-16">
+    <div class="mb-12 text-center">
+        <h3 class="aos show:animate-fade-up text-primary text-lg font-bold">Testimoni</h3>
+        <p class="aos show:animate-fade-up show:animate-delay-150 text-sm text-gray-400">We are the best service to aim times you</p>
+    </div>
+
+    <div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {
+            testimonials.map((test) => (
+                <div class="aos transition-all ease-in-out duration-500 rounded-2xl bg-[#e6e6e6] p-5 text-[#0d0d12] shadow-md">
+                    <div class="mb-3 flex items-center gap-3">
+                        <div class="h-8 w-8 rounded-full bg-gray-400" /> <h5 class="text-sm font-bold">{test.name}</h5>
+                    </div>
+                    <p class="text-xs text-gray-700 italic">{test.text}</p>
+                </div>
+            ))
+        }
+    </div>
+</section>

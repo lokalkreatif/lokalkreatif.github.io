@@ -1,0 +1,40 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts.ts';
+
+interface Props {
+    title?: string;
+    showHeader?: boolean;
+    showFooter?: boolean;
+}
+
+const { title = SITE_TITLE, showHeader = true, showFooter = true } = Astro.props;
+---
+
+<html lang="en" class="scroll-smooth">
+    <head class="p-16">
+        <BaseHead title={title} />
+    </head>
+    <body class="selection:bg-primary min-h-screen bg-[#0d0d12] font-sans relative text-white selection:text-black">
+        {showHeader && <Header />}
+        <slot />
+        {showFooter && <Footer />}
+
+        <script>
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('show');
+                        }
+                    });
+                },
+                { threshold: 0.1 }
+            );
+
+            document.querySelectorAll('.aos').forEach((el) => observer.observe(el));
+        </script>
+    </body>
+</html>

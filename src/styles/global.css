@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@import "tailwindcss-animated";
+@plugin "@tailwindcss/typography";
+
+@theme {
+    --font-sans: 'Poppins', 'sans-serif';
+    --color-primary: #80cce7;
+}
+
+@custom-variant show (&.show);
+
+@utility container {
+    @apply mx-auto px-6
+}
+
+.aos {
+    @apply opacity-0 show:opacity-100
+}
